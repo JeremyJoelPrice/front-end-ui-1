@@ -2,5 +2,8 @@ import { Button, ImageBackground, Text, TouchableOpacity, View, StyleSheet, Imag
 import { useRef, useState, useEffect } from "react";
 
 const UserLogin = () => {
-    
+
 }
+
+
+export default UserLogin;
