@@ -2,7 +2,8 @@
 import { useRef, useState, useEffect } from "react";
 import { Button, ImageBackground, Text, TouchableOpacity, View, StyleSheet, Image} from "react-native";
 
-import CameraFile from "./components/camera";
+import CameraFile from "./Screens/CameraScreen/camera";
+import UserLogin from "./Screens/SignInScreen/userLogin";
 
 export default function App() {
 /* if !user === logged in {
@@ -15,7 +16,7 @@ export default function App() {
 */
   return (
     <View style={styles.container}>
-      <CameraFile />
+      <UserLogin />
     </View>
   );
 }
