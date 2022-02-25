@@ -1,12 +1,20 @@
-
 import { useRef, useState, useEffect } from "react";
-import { Button, ImageBackground, Text, TouchableOpacity, View, StyleSheet, Image} from "react-native";
+import {
+  Button,
+  ImageBackground,
+  Text,
+  TouchableOpacity,
+  View,
+  StyleSheet,
+  Image,
+} from "react-native";
 
 import CameraFile from "./Screens/CameraScreen/camera";
-import UserLogin from "./Screens/SignInScreen/userLogin";
+
+import Navigation from "./Navigation";
 
 export default function App() {
-/* if !user === logged in {
+  /* if !user === logged in {
   return (
     <View>
     <UserLogin />
@@ -16,11 +24,11 @@ export default function App() {
 */
   return (
     <View style={styles.container}>
-      <UserLogin />
+      {/* <UserLogin /> */}
+      <Navigation />
     </View>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -29,4 +37,4 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-})
+});
