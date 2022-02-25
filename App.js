@@ -4,6 +4,7 @@ import { Button, ImageBackground, Text, TouchableOpacity, View, StyleSheet, Imag
 
 import CameraFile from "./Screens/CameraScreen/camera";
 import UserLogin from "./Screens/SignInScreen/userLogin";
+import SignUp from "./Screens/SignUpScreen /signUp";
 
 export default function App() {
 /* if !user === logged in {
@@ -16,6 +17,7 @@ export default function App() {
 */
   return (
     <View style={styles.container}>
+      {/* <SignUp /> */}
       <UserLogin />
     </View>
   );

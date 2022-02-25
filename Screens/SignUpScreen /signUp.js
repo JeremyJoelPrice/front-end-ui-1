@@ -10,24 +10,20 @@ import {
 import { useRef, useState, useEffect } from "react";
 import CustomInput from "../../Components/CustomInput/CustomInput";
 import CustomButton from "../../Components/customButton/customButton";
-import { login } from "../../api";
 
-const UserLogin = () => {
+const SignUp = () => {
+  const [username, setUsername] = useState('')
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [repeatPassword, setRepeatPassword] = useState("");
+  
 
-  const onSignIn = () => {
-    login().then((res) => {
-      // alert(res)
-      console.warn(res);
-    })
-    // console.warn("Sign in.");
-  };
-  const onForgotPassword = () => {
-    console.warn("Forgot Password.");
-  };
   const onSignUp = () => {
-    console.warn("Sign up.");
+    console.warn("Account Created(Post request to server)");
+  };
+
+  const onLoginPage = () => {
+    console.warn("Navigate to login page");
   };
   /*
   if user_id !== Num {
@@ -37,9 +33,14 @@ const UserLogin = () => {
 
   return (
     <View style={styles.root}>
-      <Text>User Login Page</Text>
+      <Text>Create an account</Text>
       <CustomInput
         placeholder="Username"
+        value={username}
+        setValue={setUsername}
+      />
+      <CustomInput
+        placeholder="Email"
         value={email}
         setValue={setEmail}
       />
@@ -49,16 +50,18 @@ const UserLogin = () => {
         setValue={setPassword}
         secureTextEntry={true}
       />
-
-      <CustomButton text={"Sign In"} onPress={onSignIn} />
-      <CustomButton
-        text={"Forgot Password?"}
-        onPress={onForgotPassword}
-        type="TERTIARY"
+         <CustomInput
+        placeholder="Repeat Password"
+        value={repeatPassword}
+        setValue={setRepeatPassword}
+        secureTextEntry={true}
       />
+
+      <CustomButton text={"Sign Up"} onPress={onSignUp} />
+     
       <CustomButton
-        text="Don't have an account? Create one"
-        onPress={onSignUp}
+        text="Already Have an account? Click here to login"
+        onPress={onLoginPage}
         type="TERTIARY"
       ></CustomButton>
     </View>
@@ -70,6 +73,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 20,
   },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    margin: 10,
+    color: 'black'
+  }
 });
 
-export default UserLogin;
+export default SignUp;
