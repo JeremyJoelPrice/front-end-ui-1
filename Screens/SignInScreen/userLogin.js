@@ -21,7 +21,7 @@ const UserLogin = () => {
       // alert(res)
       console.warn(res);
     })
-    // console.warn("Sign in.");
+    // console.warn(email);
   };
   const onForgotPassword = () => {
     console.warn("Forgot Password.");
@@ -33,6 +33,7 @@ const UserLogin = () => {
   if user_id !== Num {
       
   }
+  if setEmail and setPassword match email and password in database return user_id
   */
 
   return (
