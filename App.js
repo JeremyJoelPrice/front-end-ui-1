@@ -11,12 +11,7 @@ import {
 
 import CameraFile from "./Screens/CameraScreen/camera";
 
-
 import Navigation from "./Navigation";
-
-
-
-
 
 export default function App() {
   /* if !user === logged in {
@@ -28,14 +23,8 @@ export default function App() {
 }
 */
   return (
-    <View style={styles.container}>
-
-      {/* <UserLogin /> */}
+    <View>
       <Navigation />
-
-      {/* <SignUp /> */}
-      <UserLogin />
-
     </View>
   );
 }

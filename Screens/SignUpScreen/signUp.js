@@ -10,20 +10,24 @@ import {
 import { useRef, useState, useEffect } from "react";
 import CustomInput from "../../Components/CustomInput/CustomInput";
 import CustomButton from "../../Components/customButton/customButton";
+import { useNavigation, userNavigation } from "@react-navigation/native";
 
 const SignUp = () => {
-  const [username, setUsername] = useState('')
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
-  
+
+  const navigation = useNavigation();
 
   const onSignUp = () => {
     console.warn("Account Created(Post request to server)");
+    navigation.navigate("UserLogin");
   };
 
   const onLoginPage = () => {
     console.warn("Navigate to login page");
+    navigation.navigate("UserLogin");
   };
   /*
   if user_id !== Num {
@@ -39,18 +43,14 @@ const SignUp = () => {
         value={username}
         setValue={setUsername}
       />
-      <CustomInput
-        placeholder="Email"
-        value={email}
-        setValue={setEmail}
-      />
+      <CustomInput placeholder="Email" value={email} setValue={setEmail} />
       <CustomInput
         placeholder="Password"
         value={password}
         setValue={setPassword}
         secureTextEntry={true}
       />
-         <CustomInput
+      <CustomInput
         placeholder="Repeat Password"
         value={repeatPassword}
         setValue={setRepeatPassword}
@@ -58,7 +58,7 @@ const SignUp = () => {
       />
 
       <CustomButton text={"Sign Up"} onPress={onSignUp} />
-     
+
       <CustomButton
         text="Already Have an account? Click here to login"
         onPress={onLoginPage}
@@ -75,10 +75,10 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     margin: 10,
-    color: 'black'
-  }
+    color: "black",
+  },
 });
 
 export default SignUp;
