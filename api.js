@@ -10,7 +10,7 @@ export const test = () => {
 }
 
 export const login = () => {
-    return axios.get(' https://bird-brain-nc-project.herokuapp.com/').then((res) => {
+    return axios.get('https://bird-brain-nc-project.herokuapp.com/').then((res) => {
         return res.data
     })
 }
