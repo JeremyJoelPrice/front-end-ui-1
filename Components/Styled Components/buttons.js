@@ -1,9 +1,8 @@
-import { Pressable } from "react-native";
 import styled from "styled-components/native";
+import { Pressable } from "react-native";
 
-const Button = styled(Pressable)`
-	color: white;
-    background-color: blue;
+const StyledPressable = styled(Pressable)`
+	background-color: green;
 `;
 
-export { Button };
+export { StyledPressable };
