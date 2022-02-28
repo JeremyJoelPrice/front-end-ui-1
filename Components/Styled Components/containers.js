@@ -16,8 +16,14 @@ const FlexColumn = styled(View)`
 	flex-direction: column;
 `;
 
+const FlexRow = styled(View)`
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+`;
+
 const HighlightContainer = styled(View)`
 	background-color: green;
 `;
 
-export { FlexColumn, HighlightContainer, View };
+export { FlexColumn, FlexRow, HighlightContainer, View };
