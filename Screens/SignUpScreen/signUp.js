@@ -29,14 +29,9 @@ const SignUp = () => {
     console.warn("Navigate to login page");
     navigation.navigate("UserLogin");
   };
-  /*
-  if user_id !== Num {
-      
-  }
-  */
 
   return (
-    <View style={styles.root}>
+    <View>
       <Text>Create an account</Text>
       <CustomInput
         placeholder="Username"
@@ -68,17 +63,5 @@ const SignUp = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  root: {
-    alignItems: "center",
-    padding: 20,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    margin: 10,
-    color: "black",
-  },
-});
 
 export default SignUp;

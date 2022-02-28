@@ -21,7 +21,7 @@ const UserLogin = () => {
 
   const onSignIn = () => {
     console.warn("Sign in.");
-    navigation.navigate("HomeScreen");
+    // navigation.navigate("HomeScreen");
 
     login().then((res) => {
       // alert(res)
@@ -39,7 +39,7 @@ const UserLogin = () => {
   */
 
   return (
-    <View style={styles.root}>
+    <View>
       <Text>User Login Page</Text>
       <CustomInput placeholder="Username" value={email} setValue={setEmail} />
       <CustomInput
@@ -59,11 +59,5 @@ const UserLogin = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  root: {
-    alignItems: "center",
-    padding: 20,
-  },
-});
 
 export default UserLogin;
