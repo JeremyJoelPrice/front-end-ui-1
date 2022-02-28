@@ -1,5 +1,5 @@
-import { Image, Pressable } from "react-native";
-import { Text, View } from "../../Components/Styled Components";
+import { Pressable } from "react-native";
+import { Text, ThumbnailImage, View } from "../../Components/Styled Components";
 
 const BirdCard = ({ name, imageUrl, count = 1 }) => {
 	return (
@@ -11,7 +11,7 @@ const BirdCard = ({ name, imageUrl, count = 1 }) => {
 					}}
 				>
 					<View>
-						<Image
+						<ThumbnailImage
 							style={{
 								width: 50,
 								height: 50
