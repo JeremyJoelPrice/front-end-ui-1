@@ -6,6 +6,7 @@ import UserLogin from "../Screens/SignInScreen/userLogin";
 import SignUp from "../Screens/SignUpScreen/signUp";
 import { Navbar } from "../Components/Navbar/Navbar";
 import Aviary from "../Screens/AviaryScreen/Aviary";
+import OneBird from "../Screens/OneBirdScreen/OneBird";
 
 const Stack = createNativeStackNavigator();
 
@@ -13,6 +14,7 @@ const Navigation = () => {
 	return (
 		<NavigationContainer>
 			<Stack.Navigator screenOptions={{ headerShown: false }}>
+				<Stack.Screen name="OneBird" component={OneBird} />
 				<Stack.Screen name="Aviary" component={Aviary} />
 				<Stack.Screen name="UserLogin" component={UserLogin} />
 				<Stack.Screen name="SignUp" component={SignUp} />

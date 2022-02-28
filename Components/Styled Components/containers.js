@@ -7,6 +7,7 @@ const BlankContainer = styled(rawView)`
 	border: 1pt solid red;
 	margin: 0;
 	padding: 0;
+	text-align: center;
 `;
 
 const View = styled(BlankContainer)``;
@@ -22,8 +23,12 @@ const FlexRow = styled(View)`
 	justify-content: space-between;
 `;
 
+const HeaderPanel = styled(View)`
+	border: 1px solid lightgray;
+`;
+
 const HighlightContainer = styled(View)`
 	background-color: green;
 `;
 
-export { FlexColumn, FlexRow, HighlightContainer, View };
+export { FlexColumn, FlexRow, HeaderPanel, HighlightContainer, View };
