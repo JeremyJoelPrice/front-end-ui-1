@@ -4,7 +4,6 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import UserLogin from "../Screens/SignInScreen/userLogin";
 import SignUp from "../Screens/SignUpScreen/signUp";
-import HomeScreen from "../Screens/HomeScreen/HomeScreen";
 import { Navbar } from "../Components/Navbar/Navbar";
 import Aviary from "../Screens/AviaryScreen/Aviary";
 
@@ -14,10 +13,9 @@ const Navigation = () => {
 	return (
 		<NavigationContainer>
 			<Stack.Navigator screenOptions={{ headerShown: false }}>
-				{/* <Stack.Screen name="UserLogin" component={UserLogin} /> */}
-				{/* <Stack.Screen name="SignUp" component={SignUp} /> */}
 				<Stack.Screen name="Aviary" component={Aviary} />
-				{/* <Stack.Screen name="HomeScreen" component={HomeScreen} /> */}
+				<Stack.Screen name="UserLogin" component={UserLogin} />
+				<Stack.Screen name="SignUp" component={SignUp} />
 			</Stack.Navigator>
 			<Navbar />
 		</NavigationContainer>
