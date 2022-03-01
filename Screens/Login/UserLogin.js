@@ -12,9 +12,9 @@ import UserContext from "../../UserContext";
 
 const UserLogin = () => {
 	const [loginOrSignup, setLoginOrSignup] = useState("login");
-	const [email, setEmail] = useState("example@email.com");
-	const [password, setPassword] = useState("123abc");
-	const [username, setUsername] = useState("Example Username");
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const [username, setUsername] = useState("");
 	const [loginIncorrect, setLoginIncorrect] = useState(false);
 	const [userNotFound, setUserNotFound] = useState(false);
 	const { userId, setUserId } = useContext(UserContext);
