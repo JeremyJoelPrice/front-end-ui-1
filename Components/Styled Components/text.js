@@ -18,8 +18,12 @@ const RedText = styled(Text)`
 	font-size: 0.8em;
 `;
 
+const SmallText = styled(Text)`
+	font-size: 0.6em;
+`;
+
 const HeaderText = styled(Text)`
 	font-size: 1.8em;
 `;
 
-export { HeaderText, RedText, Text, TextInput };
+export { HeaderText, RedText, SmallText, Text, TextInput };
