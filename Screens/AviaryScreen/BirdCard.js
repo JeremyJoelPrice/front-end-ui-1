@@ -12,10 +12,6 @@ const BirdCard = ({ name, imageUrl, count = 1 }) => {
 				>
 					<View>
 						<ThumbnailImage
-							style={{
-								width: 50,
-								height: 50
-							}}
 							source={imageUrl}
 						/>
 					</View>
