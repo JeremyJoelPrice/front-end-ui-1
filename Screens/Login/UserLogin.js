@@ -1,9 +1,14 @@
 import {
+	FlexColumn,
+	FlexRow,
+	FormButton,
+	FormContainer,
+	HeaderPanel,
+	HeaderText,
 	RedText,
-	StyledPressable,
 	Text,
 	TextInput,
-	View
+	VerticalBuffer
 } from "../../Components/Styled Components";
 import { useContext, useEffect, useState } from "react";
 import { checkEmail } from "../../utils";
@@ -48,11 +53,22 @@ const UserLogin = () => {
 
 	function signUp() {
 		setLoginOrSignup("signup");
+		setUserNotFound(false);
+		setLoginIncorrect(false);
+	}
+
+	function login() {
+		setLoginOrSignup("login");
+		setUserNotFound(false);
+		setLoginIncorrect(false);
 	}
 
 	return (
-		<View>
-			<Text>User Login Page</Text>
+		<FormContainer>
+			<HeaderPanel>
+				<HeaderText>User Login Page</HeaderText>
+			</HeaderPanel>
+			<VerticalBuffer />
 			{loginOrSignup === "login" ? null : (
 				<TextInput
 					placeholder="Username"
@@ -78,15 +94,22 @@ const UserLogin = () => {
 				}}
 				secureTextEntry={true}
 			/>
-			<StyledPressable onPress={submit}>
+			<FormButton onPress={submit}>
 				<Text>{loginOrSignup === "login" ? "Sign In" : "Sign Up"}</Text>
-			</StyledPressable>
-			<StyledPressable onPress={signUp}>
-				<Text>Create new account</Text>
-			</StyledPressable>
+			</FormButton>
+			{loginOrSignup === "login" ? (
+				<FormButton onPress={signUp}>
+					<Text>Create new account</Text>
+				</FormButton>
+			) : (
+				<FormButton onPress={login}>
+					<Text>Back to login</Text>
+				</FormButton>
+			)}
+
 			{loginIncorrect ? <RedText>Login information incorrect</RedText> : null}
 			{userNotFound ? <RedText>User not found</RedText> : null}
-		</View>
+		</FormContainer>
 	);
 };
 
