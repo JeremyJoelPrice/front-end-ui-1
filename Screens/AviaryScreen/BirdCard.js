@@ -9,7 +9,7 @@ import {
 const BirdCard = ({ card, navigation }) => {
 	const { bird_name, count } = card;
 	const onPress = (e) => {
-		navigation.navigate("OneBird");
+		navigation.navigate("OneBird", { bird_name });
 	};
 
 	return (
