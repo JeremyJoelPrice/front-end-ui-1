@@ -12,7 +12,7 @@ import FactCardsContext from "./FactCardsContext";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-	const [userId, setUserId] = useState("");
+	const [userId, setUserId] = useState(1);
 	const [factCards, setFactCards] = useState([]);
 
 	return (

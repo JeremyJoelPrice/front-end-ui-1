@@ -1,24 +1,32 @@
+import { useContext, useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 import { HeaderText, View } from "../../Components/Styled Components";
 import BirdCard from "./BirdCard";
+import FactCardsContext from "../../FactCardsContext";
+import UserContext from "../../UserContext";
+import { getFactCards } from "../../api";
+import { extractBirdCards } from "../../utils";
 
-const Aviary = () => {
-	const birdCards = [1, 2, 3, 4];
+const Aviary = ({ navigation }) => {
+	const { factCards, setFactCards } = useContext(FactCardsContext);
+	const { userId } = useContext(UserContext);
+	const [birdCards, setBirdCards] = useState([]);
+
+	useEffect(() => {
+		getFactCards(userId).then((cards) => {
+			setFactCards(cards);
+			setBirdCards(extractBirdCards(cards));
+		});
+	}, []);
+
 	return (
 		<>
 			<View>
 				<HeaderText>User's Aviary</HeaderText>
 			</View>
 			<View>
-				{birdCards.map((index) => {
-					return (
-						<BirdCard
-							key={uuid()}
-							name="bird name"
-							imageUrl="https://cdn3.iconfinder.com/data/icons/spring-125/100/Pigeon-512.png"
-							count={index}
-						/>
-					);
+				{birdCards.map((card) => {
+					return <BirdCard key={uuid()} navigation={navigation} card={card} />;
 				})}
 			</View>
 		</>
