@@ -11,7 +11,12 @@ const BlankText = styled(rawText)`
 	color: ${black};
 `;
 
-const TextInput = styled(rawTextInput)``;
+const TextInput = styled(rawTextInput)`
+	borderBottomColor: ${black};
+	borderBottomWidth: 2pt;
+	margin: 8px;
+	text-align: center;
+`;
 
 const Text = styled(BlankText)`
 	margin-top: auto;
@@ -28,7 +33,7 @@ const SmallText = styled(Text)`
 `;
 
 const HeaderText = styled(Text)`
-	font-size: 1.8em;
+	font-size: 1.6em;
 `;
 
 const TitleText = styled(Text)`

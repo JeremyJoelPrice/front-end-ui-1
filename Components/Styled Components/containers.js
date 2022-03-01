@@ -27,6 +27,13 @@ const FlexRow = styled(View)`
 	justify-content: space-evenly;
 `;
 
+const FormContainer = styled(FlexColumn)`
+	align-self: center;
+	width: 60vw;
+	height: 30vh;
+	justify-content: space-between;
+`;
+
 const AppContainer = styled(FlexColumn)`
 	height: 100%;
 	background-color: ${blue};
@@ -60,6 +67,7 @@ export {
 	AppContainer,
 	FlexColumn,
 	FlexRow,
+	FormContainer,
 	HeaderPanel,
 	HighlightContainer,
 	MainContent,
