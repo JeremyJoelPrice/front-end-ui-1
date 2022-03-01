@@ -18,9 +18,9 @@ export default function App() {
 		<NavigationContainer>
 			<UserContext.Provider value={{ userId, setUserId }}>
 				<Stack.Navigator screenOptions={{ headerShown: false }}>
+					<Stack.Screen name="Aviary" component={Aviary} />
 					<Stack.Screen name="UserLogin" component={UserLogin} />
 					<Stack.Screen name="FactCard" component={FactCard} />
-					<Stack.Screen name="Aviary" component={Aviary} />
 					<Stack.Screen name="OneBird" component={OneBird} />
 				</Stack.Navigator>
 			</UserContext.Provider>
