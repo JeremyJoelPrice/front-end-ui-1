@@ -4,3 +4,4 @@ export * from "./navbar";
 export * from "./buttons";
 export * from "./oneBird";
 export * from "./images";
+export * from "./colours";

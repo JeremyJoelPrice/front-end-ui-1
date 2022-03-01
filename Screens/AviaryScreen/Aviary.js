@@ -7,7 +7,7 @@ import UserContext from "../../UserContext";
 import { getFactCards } from "../../api";
 import { extractBirdCards } from "../../utils";
 
-const Aviary = ({ navigation }) => {
+const Aviary = ({navigation}) => {
 	const { factCards, setFactCards } = useContext(FactCardsContext);
 	const { userId } = useContext(UserContext);
 	const [birdCards, setBirdCards] = useState([]);
