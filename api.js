@@ -30,3 +30,9 @@ export const getFactPhoto = (bird_name, image_num) => {
     return res.data;
   });
 };
+
+export const getFactCards = (userId) => {
+  return axios
+    .get(`/users/${userId}/fact_cards`)
+    .then(({ data }) => data.cards);
+};
