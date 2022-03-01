@@ -5,3 +5,4 @@ export * from "./buttons";
 export * from "./oneBird";
 export * from "./images";
 export * from "./colours";
+export * from "./aviary/StyledBirdCard"
