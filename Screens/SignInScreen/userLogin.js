@@ -10,24 +10,38 @@ import {
 import { useRef, useState, useEffect } from "react";
 import CustomInput from "../../Components/CustomInput/CustomInput";
 import CustomButton from "../../Components/customButton/customButton";
+
+import { useNavigation, userNavigation } from "@react-navigation/native";
+
 import { login } from "../../api";
+
 
 const UserLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigation = useNavigation();
+
   const onSignIn = () => {
+
+    console.warn("Sign in.");
+    // validate user
+    navigation.navigate("HomeScreen"); // Home Page Placeholder
+
     login().then((res) => {
       // alert(res)
       console.warn(res);
     })
-    // console.warn(email);
+    // console.warn("Sign in.");
+
   };
   const onForgotPassword = () => {
     console.warn("Forgot Password.");
+    navigation.navigate("ForgotPassword"); // Add Forgot Password screen to navigation/index.js
   };
   const onSignUp = () => {
     console.warn("Sign up.");
+    navigation.navigate("SignUp"); // Add Forgot Password screen to navigation/index.js
   };
   /*
   if user_id !== Num {
