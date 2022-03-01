@@ -1,25 +1,28 @@
+import { useContext, useEffect, useState } from "react";
 import {
-	HeaderPanel,
-	HeaderText,
-	LargeImage,
-	Text
+  HeaderPanel,
+  HeaderText,
+  LargeImage,
+  Text,
 } from "../../Components/Styled Components";
+import { getFactCard, getFactPhoto } from "../../api";
 
-const FactCard = ({
-	factCard = {
-		bird_name: "bird",
-		fact: "birds are real",
-		imageUrl:
-			"https://cdn3.iconfinder.com/data/icons/spring-125/100/Pigeon-512.png"
-	}
-}) => {
-	return (
-		<HeaderPanel>
-			<HeaderText>{factCard.bird_name}</HeaderText>
-			<LargeImage source={factCard.imageUrl} />
-			<Text>{factCard.fact}</Text>
-		</HeaderPanel>
-	);
+const FactCard = () => {
+  const [cardFact, setCardFact] = useState([]);
+
+  useEffect(() => {
+    getCardFact(userId).then((card) => {
+      setCardFact(card);
+    });
+  }, []);
+
+  return (
+    <HeaderPanel>
+      <HeaderText>{factCard.bird_name}</HeaderText>
+      <LargeImage source={getFactPhoto} />
+      <Text>{factCard.fact}</Text>
+    </HeaderPanel>
+  );
 };
 
 export default FactCard;

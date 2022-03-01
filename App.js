@@ -14,8 +14,8 @@ import { AppContainer, MainContent } from "./Components/Styled Components";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-	const [userId, setUserId] = useState(1);
-	const [factCards, setFactCards] = useState([]);
+  const [userId, setUserId] = useState("");
+  const [factCards, setFactCards] = useState([]);
 
 	return (
 		<AppContainer>
