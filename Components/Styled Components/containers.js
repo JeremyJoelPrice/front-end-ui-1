@@ -24,11 +24,12 @@ const FlexColumn = styled(View)`
 const FlexRow = styled(View)`
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
+	justify-content: space-evenly;
 `;
 
 const AppContainer = styled(FlexColumn)`
 	height: 100%;
+	background-color: ${blue};
 `;
 
 const MainContent = styled(BlankContainer)`

@@ -3,7 +3,9 @@ import {
 	StyledNavbar,
 	Text,
 	FlexRow,
-	StyledNavbarButton
+	StyledNavbarButton,
+	CameraImage,
+	ThumbnailImage
 } from "../Styled Components";
 
 const Navbar = () => {
@@ -13,9 +15,7 @@ const Navbar = () => {
 				<StyledNavbarButton>
 					<Text>Aviary</Text>
 				</StyledNavbarButton>
-				<StyledNavbarButton>
-					<Text>Camera</Text>
-				</StyledNavbarButton>
+				<CameraImage source={require("../../icons/camera.png")} />
 				<StyledNavbarButton>
 					<Text>Marketplace</Text>
 				</StyledNavbarButton>

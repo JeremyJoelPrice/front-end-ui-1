@@ -13,7 +13,10 @@ const BlankText = styled(rawText)`
 
 const TextInput = styled(rawTextInput)``;
 
-const Text = styled(BlankText)``;
+const Text = styled(BlankText)`
+	margin-top: auto;
+	margin-bottom: auto;
+`;
 
 const RedText = styled(Text)`
 	color: red;
