@@ -3,21 +3,25 @@ import {
 	StyledNavbar,
 	Text,
 	FlexRow,
-	StyledNavbarButton
+	StyledNavbarButton,
+	CameraImage,
+	ThumbnailImage
 } from "../Styled Components";
 
-const Navbar = () => {
+const Navbar = ({ navigation }) => {
+	function onPress(destination) {
+		navigation.navigate(destination);
+	}
+
 	return (
 		<StyledNavbar>
 			<FlexRow>
-				<StyledNavbarButton>
+				<StyledNavbarButton onPress={() => onPress("Aviary")}>
 					<Text>Aviary</Text>
 				</StyledNavbarButton>
-				<StyledNavbarButton>
-					<Text>Camera</Text>
-				</StyledNavbarButton>
-				<StyledNavbarButton>
-					<Text>Marketplace</Text>
+				<CameraImage source={require("../../icons/camera.png")} />
+				<StyledNavbarButton onPress={() => onPress("UserLogin")}>
+					<Text>Sign Out</Text>
 				</StyledNavbarButton>
 			</FlexRow>
 		</StyledNavbar>
