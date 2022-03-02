@@ -14,24 +14,26 @@ import { Navbar } from "./Components/Navbar/Navbar";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-	const [currentUser, setCurrentUser] = useState({
-		username: "Nora Foreman",
-		userId: 1
-	});
-	const [factCards, setFactCards] = useState([]);
+  const [userId, setUserId] = useState(1);
+  const [factCards, setFactCards] = useState([]);
 
-	return (
-		<NavigationContainer>
-			<UserContext.Provider value={{ currentUser, setCurrentUser }}>
-				<FactCardsContext.Provider value={{ factCards, setFactCards }}>
-					<Stack.Navigator screenOptions={{ headerShown: false }}>
-						<Stack.Screen name="Aviary" component={Aviary} />
-						<Stack.Screen name="UserLogin" component={UserLogin} />
-						<Stack.Screen name="OneBird" component={OneBird} />
-						<Stack.Screen name="FactCard" component={FactCard} />
-					</Stack.Navigator>
-				</FactCardsContext.Provider>
-			</UserContext.Provider>
-		</NavigationContainer>
-	);
+  return (
+    <AppContainer>
+      <MainContent>
+        <NavigationContainer>
+          <UserContext.Provider value={{ userId, setUserId }}>
+            <FactCardsContext.Provider value={{ factCards, setFactCards }}>
+              <Stack.Navigator screenOptions={{ headerShown: false }}>
+                <Stack.Screen name="Aviary" component={Aviary} />
+                <Stack.Screen name="OneBird" component={OneBird} />
+                <Stack.Screen name="FactCard" component={FactCard} />
+                <Stack.Screen name="UserLogin" component={UserLogin} />
+              </Stack.Navigator>
+            </FactCardsContext.Provider>
+          </UserContext.Provider>
+        </NavigationContainer>
+      </MainContent>
+      <Navbar />
+    </AppContainer>
+  );
 }
