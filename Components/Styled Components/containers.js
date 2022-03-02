@@ -3,49 +3,56 @@ import { View as rawView } from "react-native";
 import { blue, greenWhite, white } from "./colours";
 
 const BlankContainer = styled(rawView)`
-	box-sizing: border-box;
-	display: block;
-	// border: 1pt solid red;
-	margin: 0;
-	min-height: 0;
-	min-width: 0;
-	padding: 0;
-	text-align: center;
+  box-sizing: border-box;
+  display: block;
+  // border: 1pt solid red;
+  margin: 0;
+  min-height: 0;
+  min-width: 0;
+  padding: 0;
+  text-align: center;
 `;
 
 const View = styled(BlankContainer)``;
 
 const FlexColumn = styled(View)`
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 `;
 
 const FlexRow = styled(View)`
-	display: flex;
-	flex-direction: row;
-	justify-content: space-evenly;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 `;
 
 const FormContainer = styled(FlexColumn)`
-	height: 30vh;
-	justify-content: space-between;
+  height: 30vh;
+  justify-content: space-between;
 `;
 
 const AppContainer = styled(FlexColumn)`
-	height: 100%;
-	background-color: ${blue};
+  height: 100%;
+  background-color: ${blue};
 `;
 
 const HighlightContainer = styled(View)`
-	background-color: green;
+  background-color: green;
+`;
+
+const ScrollableContainer = styled(View)`
+  height: 150px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 `;
 
 export {
-	AppContainer,
-	FlexColumn,
-	FlexRow,
-	FormContainer,
-	HighlightContainer,
-	View
+  AppContainer,
+  FlexColumn,
+  FlexRow,
+  FormContainer,
+  HighlightContainer,
+  View,
+  ScrollableContainer,
 };

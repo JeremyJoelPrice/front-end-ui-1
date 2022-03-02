@@ -1,14 +1,14 @@
 import styled from "styled-components/native";
 
 import {
-	AppContainer,
-	FlexColumn,
-	FlexRow,
-	FormContainer,
-	HeaderPanel,
-	HighlightContainer,
-	MainContent,
-	View
+  AppContainer,
+  FlexColumn,
+  FlexRow,
+  FormContainer,
+  HeaderPanel,
+  HighlightContainer,
+  MainContent,
+  View,
 } from "./containers";
 
 export * from "./containers";
@@ -21,7 +21,8 @@ export * from "./colours";
 export * from "./aviary/StyledBirdCard";
 export * from "./login";
 export * from "./screen";
+export * from "./FactCard";
 
 export const VerticalBuffer = styled(View)`
-	margin-top: 150px;
+  margin-top: 150px;
 `;
