@@ -30,7 +30,7 @@ const Aviary = ({ navigation }) => {
 	return (
 		<AppContainer>
 			<HeaderPanel>
-				<HeaderText>User's Aviary</HeaderText>
+				<HeaderText>{currentUser.username}'s Aviary</HeaderText>
 			</HeaderPanel>
 			<MainContent>
 				<StyledBirdCardList>
@@ -41,7 +41,7 @@ const Aviary = ({ navigation }) => {
 					})}
 				</StyledBirdCardList>
 			</MainContent>
-			<Navbar />
+			<Navbar navigation={navigation} />
 		</AppContainer>
 	);
 };

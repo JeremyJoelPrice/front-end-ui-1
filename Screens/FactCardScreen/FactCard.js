@@ -10,7 +10,7 @@ import {
 import { getFactCard, getFactPhoto } from "../../api";
 import { Navbar } from "../../Components/Navbar/Navbar";
 
-const FactCard = () => {
+const FactCard = ({ navigation }) => {
 	const [cardFact, setCardFact] = useState([]);
 
 	useEffect(() => {
@@ -27,7 +27,7 @@ const FactCard = () => {
 				<Text>{factCard.fact}</Text>
 			</HeaderPanel>
 			<MainContent></MainContent>
-			<Navbar />
+			<Navbar navigation={navigation} />
 		</AppContainer>
 	);
 };

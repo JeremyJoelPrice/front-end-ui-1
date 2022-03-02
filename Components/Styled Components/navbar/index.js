@@ -29,9 +29,11 @@ const CameraImage = styled(ThumbnailImage)`
 const StyledNavbarButton = styled(Pressable)`
 	width: 90px;
 	height: 40px;
-    align-self: flex-end;
-	border-radius: 40%;
+	align-self: flex-end;
+	border-radius: 20%;
 	background-color: ${greenShadow};
+	shadowColor: ${greenShadow};
+	shadowRadius: 4px;
 `;
 
 export { CameraImage, StyledNavbar, StyledNavbarButton };
