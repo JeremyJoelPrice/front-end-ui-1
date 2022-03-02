@@ -1,10 +1,12 @@
 import {
+	AppContainer,
 	FlexColumn,
 	FlexRow,
 	FormButton,
 	FormContainer,
 	HeaderPanel,
 	HeaderText,
+	MainContent,
 	RedText,
 	Text,
 	TextInput,
@@ -15,14 +17,14 @@ import { checkEmail } from "../../utils";
 import { login, signup } from "../../api";
 import UserContext from "../../UserContext";
 
-const UserLogin = () => {
+const UserLogin = ({ navigation }) => {
 	const [loginOrSignup, setLoginOrSignup] = useState("login");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [username, setUsername] = useState("");
 	const [loginIncorrect, setLoginIncorrect] = useState(false);
 	const [userNotFound, setUserNotFound] = useState(false);
-	const { userId, setUserId } = useContext(UserContext);
+	const { currentUser, setCurrentUser } = useContext(UserContext);
 
 	function submit() {
 		// check password field isn't empty, and email is valid
@@ -36,8 +38,8 @@ const UserLogin = () => {
 				login(email, password)
 					.then(({ data }) => {
 						setUserNotFound(false);
-						setUserId(data.user_id);
-						console.log("sign in successful");
+						setCurrentUser({ username, userId: data.user_id });
+						navigation.navigate("Aviary");
 					})
 					.catch((error) => {
 						// user doesn't exist, display message
@@ -51,65 +53,71 @@ const UserLogin = () => {
 		}
 	}
 
-	function signUp() {
+	function signUpMode() {
 		setLoginOrSignup("signup");
 		setUserNotFound(false);
 		setLoginIncorrect(false);
 	}
 
-	function login() {
+	function loginMode() {
 		setLoginOrSignup("login");
 		setUserNotFound(false);
 		setLoginIncorrect(false);
 	}
 
 	return (
-		<FormContainer>
+		<AppContainer>
 			<HeaderPanel>
 				<HeaderText>User Login Page</HeaderText>
 			</HeaderPanel>
-			<VerticalBuffer />
-			{loginOrSignup === "login" ? null : (
-				<TextInput
-					placeholder="Username"
-					value={username}
-					onChangeText={(text) => {
-						setUsername(text);
-					}}
-				/>
-			)}
+			<MainContent>
+				<FormContainer>
+					<VerticalBuffer />
+					{loginOrSignup === "login" ? null : (
+						<TextInput
+							placeholder="Username"
+							value={username}
+							onChangeText={(text) => {
+								setUsername(text);
+							}}
+						/>
+					)}
 
-			<TextInput
-				placeholder="Email"
-				value={email}
-				onChangeText={(text) => {
-					setEmail(text);
-				}}
-			/>
-			<TextInput
-				placeholder="Password"
-				value={password}
-				onChangeText={(text) => {
-					setPassword(text);
-				}}
-				secureTextEntry={true}
-			/>
-			<FormButton onPress={submit}>
-				<Text>{loginOrSignup === "login" ? "Sign In" : "Sign Up"}</Text>
-			</FormButton>
-			{loginOrSignup === "login" ? (
-				<FormButton onPress={signUp}>
-					<Text>Create new account</Text>
-				</FormButton>
-			) : (
-				<FormButton onPress={login}>
-					<Text>Back to login</Text>
-				</FormButton>
-			)}
+					<TextInput
+						placeholder="Email"
+						value={email}
+						onChangeText={(text) => {
+							setEmail(text);
+						}}
+					/>
+					<TextInput
+						placeholder="Password"
+						value={password}
+						onChangeText={(text) => {
+							setPassword(text);
+						}}
+						secureTextEntry={true}
+					/>
+					<FormButton onPress={submit}>
+						<Text>{loginOrSignup === "login" ? "Sign In" : "Sign Up"}</Text>
+					</FormButton>
+					{loginOrSignup === "login" ? (
+						<FormButton onPress={signUpMode}>
+							<Text>Create new account</Text>
+						</FormButton>
+					) : (
+						<FormButton onPress={loginMode}>
+							<Text>Back to login</Text>
+						</FormButton>
+					)}
 
-			{loginIncorrect ? <RedText>Login information incorrect</RedText> : null}
-			{userNotFound ? <RedText>User not found</RedText> : null}
-		</FormContainer>
+					{loginIncorrect ? (
+						<RedText>Login information incorrect</RedText>
+					) : null}
+					{userNotFound ? <RedText>User not found</RedText> : null}
+				</FormContainer>
+			</MainContent>
+		</AppContainer>
 	);
 };
 

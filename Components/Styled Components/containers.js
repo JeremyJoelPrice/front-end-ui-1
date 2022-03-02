@@ -28,8 +28,6 @@ const FlexRow = styled(View)`
 `;
 
 const FormContainer = styled(FlexColumn)`
-	align-self: center;
-	width: 60vw;
 	height: 30vh;
 	justify-content: space-between;
 `;
@@ -37,26 +35,6 @@ const FormContainer = styled(FlexColumn)`
 const AppContainer = styled(FlexColumn)`
 	height: 100%;
 	background-color: ${blue};
-`;
-
-const MainContent = styled(BlankContainer)`
-	padding-left: 20px;
-	padding-right: 20px;
-
-	flex-grow: 1;
-	overflow: scroll;
-
-	background-color: ${blue};
-`;
-
-const HeaderPanel = styled(View)`
-	background-color: ${greenWhite};
-	border-bottom-right-radius: 50%;
-	border-bottom-left-radius: 50%;
-	width: 100%;
-
-	padding: 8px;
-	margin-bottom: 20px;
 `;
 
 const HighlightContainer = styled(View)`
@@ -68,8 +46,6 @@ export {
 	FlexColumn,
 	FlexRow,
 	FormContainer,
-	HeaderPanel,
 	HighlightContainer,
-	MainContent,
 	View
 };

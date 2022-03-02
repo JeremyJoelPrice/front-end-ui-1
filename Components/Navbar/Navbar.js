@@ -9,10 +9,14 @@ import {
 } from "../Styled Components";
 
 const Navbar = () => {
+	function onPress(destination) {
+		console.log(destination);
+	}
+
 	return (
 		<StyledNavbar>
 			<FlexRow>
-				<StyledNavbarButton>
+				<StyledNavbarButton onPress={() => onPress("Aviary")}>
 					<Text>Aviary</Text>
 				</StyledNavbarButton>
 				<CameraImage source={require("../../icons/camera.png")} />
