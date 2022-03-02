@@ -10,7 +10,10 @@ import { baseURL } from "../../api";
 
 const FactCardThumbnail = ({ factCard, navigation }) => {
 	function onPress() {
-		navigation.navigate("FactCard", { card_id: factCard.card_id });
+		navigation.navigate("FactCard", {
+			card_id: factCard.card_id,
+			bird_name: factCard.bird_name
+		});
 	}
 
 	if (factCard) {
