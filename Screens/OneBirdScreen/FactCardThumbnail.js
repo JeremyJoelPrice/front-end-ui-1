@@ -1,21 +1,37 @@
-import { Pressable } from "react-native";
 import {
-	StyledFactCardThumbnail,
-	Text
+  Pressable,
+  StyledFactCardThumbnail,
+  StyledEmptyFactCardThumbnail,
+  Text,
+  ThumbnailImage,
 } from "../../Components/Styled Components";
 
-const FactCardThumbnail = ({ factCard }) => {
-	return (
-		<StyledFactCardThumbnail>
-			<Pressable
-				onPress={() => {
-					console.log("fact card pressed");
-				}}
-			>
-				<Text>Fact card for {factCard.bird_name}</Text>
-			</Pressable>
-		</StyledFactCardThumbnail>
-	);
+import { baseURL } from "../../api";
+
+const FactCardThumbnail = ({ factCard, navigation }) => {
+
+  function onPress() {
+    navigation.navigate("FactCard", {
+      card_id: factCard.card_id,
+      bird_name: factCard.bird_name,
+    });
+  }
+
+
+  if (factCard) {
+    return (
+      <StyledFactCardThumbnail>
+        <Pressable onPress={onPress}>
+          <ThumbnailImage source={`${baseURL}/photo/${factCard.image_url}`} />
+          <Text>
+            {factCard.count} {factCard.count == 1 ? "copy" : "copies"} owned
+          </Text>
+        </Pressable>
+      </StyledFactCardThumbnail>
+    );
+  } else {
+    return <StyledEmptyFactCardThumbnail />;
+  }
 };
 
 export default FactCardThumbnail;

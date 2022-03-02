@@ -1,23 +1,30 @@
 import {
+	AppContainer,
+	FlexColumn,
+	FlexRow,
+	FormButton,
+	FormContainer,
+	HeaderPanel,
+	HeaderText,
+	MainContent,
 	RedText,
-	StyledPressable,
 	Text,
 	TextInput,
-	View
+	VerticalBuffer
 } from "../../Components/Styled Components";
 import { useContext, useEffect, useState } from "react";
 import { checkEmail } from "../../utils";
 import { login, signup } from "../../api";
 import UserContext from "../../UserContext";
 
-const UserLogin = () => {
+const UserLogin = ({ navigation }) => {
 	const [loginOrSignup, setLoginOrSignup] = useState("login");
-	const [email, setEmail] = useState("example@email.com");
-	const [password, setPassword] = useState("123abc");
-	const [username, setUsername] = useState("Example Username");
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const [username, setUsername] = useState("");
 	const [loginIncorrect, setLoginIncorrect] = useState(false);
 	const [userNotFound, setUserNotFound] = useState(false);
-	const { userId, setUserId } = useContext(UserContext);
+	const { currentUser, setCurrentUser } = useContext(UserContext);
 
 	function submit() {
 		// check password field isn't empty, and email is valid
@@ -31,8 +38,8 @@ const UserLogin = () => {
 				login(email, password)
 					.then(({ data }) => {
 						setUserNotFound(false);
-						setUserId(data.user_id);
-						console.log("sign in successful");
+						setCurrentUser({ username, userId: data.user_id });
+						navigation.navigate("Aviary");
 					})
 					.catch((error) => {
 						// user doesn't exist, display message
@@ -46,47 +53,71 @@ const UserLogin = () => {
 		}
 	}
 
-	function signUp() {
+	function signUpMode() {
 		setLoginOrSignup("signup");
+		setUserNotFound(false);
+		setLoginIncorrect(false);
+	}
+
+	function loginMode() {
+		setLoginOrSignup("login");
+		setUserNotFound(false);
+		setLoginIncorrect(false);
 	}
 
 	return (
-		<View>
-			<Text>User Login Page</Text>
-			{loginOrSignup === "login" ? null : (
-				<TextInput
-					placeholder="Username"
-					value={username}
-					onChangeText={(text) => {
-						setUsername(text);
-					}}
-				/>
-			)}
+		<AppContainer>
+			<HeaderPanel>
+				<HeaderText>User Login Page</HeaderText>
+			</HeaderPanel>
+			<MainContent>
+				<FormContainer>
+					<VerticalBuffer />
+					{loginOrSignup === "login" ? null : (
+						<TextInput
+							placeholder="Username"
+							value={username}
+							onChangeText={(text) => {
+								setUsername(text);
+							}}
+						/>
+					)}
 
-			<TextInput
-				placeholder="Email"
-				value={email}
-				onChangeText={(text) => {
-					setEmail(text);
-				}}
-			/>
-			<TextInput
-				placeholder="Password"
-				value={password}
-				onChangeText={(text) => {
-					setPassword(text);
-				}}
-				secureTextEntry={true}
-			/>
-			<StyledPressable onPress={submit}>
-				<Text>{loginOrSignup === "login" ? "Sign In" : "Sign Up"}</Text>
-			</StyledPressable>
-			<StyledPressable onPress={signUp}>
-				<Text>Create new account</Text>
-			</StyledPressable>
-			{loginIncorrect ? <RedText>Login information incorrect</RedText> : null}
-			{userNotFound ? <RedText>User not found</RedText> : null}
-		</View>
+					<TextInput
+						placeholder="Email"
+						value={email}
+						onChangeText={(text) => {
+							setEmail(text);
+						}}
+					/>
+					<TextInput
+						placeholder="Password"
+						value={password}
+						onChangeText={(text) => {
+							setPassword(text);
+						}}
+						secureTextEntry={true}
+					/>
+					<FormButton onPress={submit}>
+						<Text>{loginOrSignup === "login" ? "Sign In" : "Sign Up"}</Text>
+					</FormButton>
+					{loginOrSignup === "login" ? (
+						<FormButton onPress={signUpMode}>
+							<Text>Create new account</Text>
+						</FormButton>
+					) : (
+						<FormButton onPress={loginMode}>
+							<Text>Back to login</Text>
+						</FormButton>
+					)}
+
+					{loginIncorrect ? (
+						<RedText>Login information incorrect</RedText>
+					) : null}
+					{userNotFound ? <RedText>User not found</RedText> : null}
+				</FormContainer>
+			</MainContent>
+		</AppContainer>
 	);
 };
 
