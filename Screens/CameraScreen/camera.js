@@ -5,6 +5,7 @@ import * as Sharing from 'expo-sharing';
 import * as ImagePicker from 'expo-image-picker';
 import * as Location from 'expo-location';
 import { test } from "../../api";
+import {View} from '../../Components/Styled Components/index'
 
 const CameraFile = () => {
   const [hasCameraPermission, setHasCameraPermission] = useState(null)

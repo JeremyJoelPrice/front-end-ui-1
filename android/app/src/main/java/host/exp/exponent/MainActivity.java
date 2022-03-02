@@ -54,11 +54,17 @@ public class MainActivity extends ReactActivity {
       }
       return;
     }
-
     // Use the default back button implementation on Android S
     // because it's doing more than {@link Activity#moveTaskToBack} in fact.
     super.invokeDefaultOnBackPressed();
   }
+<<<<<<< HEAD
 
 
+=======
+  @Override
+    protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(null);
+  }
+>>>>>>> 3530b94e5ecb960ee6e6b5a47faa57f2bb66ff05
 }
