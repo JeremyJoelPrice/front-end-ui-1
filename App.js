@@ -14,9 +14,11 @@ import { Navbar } from "./Components/Navbar/Navbar";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-  const [userId, setUserId] = useState(1);
-  const [factCards, setFactCards] = useState([]);
-
+	const [currentUser, setCurrentUser] = useState({
+		username: "Nora Foreman",
+		userId: 1
+	});
+	const [factCards, setFactCards] = useState([]);
 
 	return (
 		<NavigationContainer>
