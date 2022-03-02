@@ -1,5 +1,6 @@
+export const baseURL = "https://bird-brain-nc-project.herokuapp.com";
 const axios = require("axios").create({
-  baseURL: "https://bird-brain-nc-project.herokuapp.com",
+  baseURL,
   // baseURL: "http://localhost:8080"
 });
 
@@ -16,12 +17,6 @@ export const signup = (email, password) => {
   return axios.post("/login", {
     email,
     password,
-  });
-};
-
-export const getFactCard = (user_id) => {
-  return axios.get(`/users/${user_id}/fact_cards/`).then((res) => {
-    return res.data.cards;
   });
 };
 

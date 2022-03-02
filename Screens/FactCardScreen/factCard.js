@@ -1,27 +1,36 @@
 import { useContext, useEffect, useState } from "react";
 import {
-  HeaderPanel,
+  View,
   HeaderText,
   LargeImage,
   Text,
 } from "../../Components/Styled Components";
-import { getFactCard, getFactPhoto } from "../../api";
+import { baseURL } from "../../api";
+import { getFactCards } from "../../api";
+import UserContext from "../../UserContext";
 
-const FactCard = () => {
+const FactCard = ({ route }) => {
+  const bird_name = route.params.bird_name;
+  const card_id = route.params.card_id;
+
+  const { userId } = useContext(UserContext);
   const [cardFact, setCardFact] = useState([]);
 
   useEffect(() => {
-    getCardFact(userId).then((card) => {
-      setCardFact(card);
+    getFactCards(userId).then((cards) => {
+      setCardFact(cards[card_id]);
     });
   }, []);
 
   return (
-    <HeaderPanel>
-      <HeaderText>{factCard.bird_name}</HeaderText>
-      <LargeImage source={getFactPhoto} />
-      <Text>{factCard.fact}</Text>
-    </HeaderPanel>
+    <>
+      <View>
+        <HeaderText>Fact Card</HeaderText>
+      </View>
+      <HeaderText> {bird_name}</HeaderText>
+      <LargeImage source={`${baseURL}/photo/${bird_name}/${card_id}`} />
+      <Text>{cardFact.fact}</Text>
+    </>
   );
 };
 
