@@ -46,7 +46,9 @@ const HighlightContainer = styled(View)`
 export {
   FlexColumn,
   FlexRow,
-	HighlightContainer,
+  HighlightContainer,
   View,
+  AppContainer,
+  FormContainer
   
 };

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-// import FactCard from "./Screens/FactCardScreen/FactCard";
+import FactCard from "./Screens/FactCardScreen/FactCard";
 import Aviary from "./Screens/AviaryScreen/Aviary";
 import OneBird from "./Screens/OneBirdScreen/OneBird";
 import UserLogin from "./Screens/Login/UserLogin";
