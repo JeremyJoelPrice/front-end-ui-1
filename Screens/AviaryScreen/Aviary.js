@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 import {
+	AppContainer,
 	HeaderPanel,
 	HeaderText,
 	MainContent,
@@ -12,6 +13,7 @@ import FactCardsContext from "../../FactCardsContext";
 import UserContext from "../../UserContext";
 import { getFactCards } from "../../api";
 import { extractBirdCards } from "../../utils";
+import { Navbar } from "../../Components/Navbar/Navbar";
 
 const Aviary = ({ navigation }) => {
 	const { factCards, setFactCards } = useContext(FactCardsContext);
@@ -26,11 +28,11 @@ const Aviary = ({ navigation }) => {
 	}, []);
 
 	return (
-		<>
+		<AppContainer>
 			<HeaderPanel>
 				<HeaderText>User's Aviary</HeaderText>
 			</HeaderPanel>
-			{/* <MainContent> */}
+			<MainContent>
 				<StyledBirdCardList>
 					{birdCards.map((card) => {
 						return (
@@ -38,8 +40,9 @@ const Aviary = ({ navigation }) => {
 						);
 					})}
 				</StyledBirdCardList>
-			{/* </MainContent> */}
-		</>
+			</MainContent>
+			<Navbar />
+		</AppContainer>
 	);
 };
 

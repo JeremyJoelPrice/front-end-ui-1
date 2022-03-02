@@ -1,28 +1,35 @@
 import { useContext, useEffect, useState } from "react";
 import {
-  HeaderPanel,
-  HeaderText,
-  LargeImage,
-  Text,
+	AppContainer,
+	HeaderPanel,
+	HeaderText,
+	LargeImage,
+	MainContent,
+	Text
 } from "../../Components/Styled Components";
 import { getFactCard, getFactPhoto } from "../../api";
+import { Navbar } from "../../Components/Navbar/Navbar";
 
 const FactCard = () => {
-  const [cardFact, setCardFact] = useState([]);
+	const [cardFact, setCardFact] = useState([]);
 
-  useEffect(() => {
-    getCardFact(userId).then((card) => {
-      setCardFact(card);
-    });
-  }, []);
+	useEffect(() => {
+		getCardFact(userId).then((card) => {
+			setCardFact(card);
+		});
+	}, []);
 
-  return (
-    <HeaderPanel>
-      <HeaderText>{factCard.bird_name}</HeaderText>
-      <LargeImage source={getFactPhoto} />
-      <Text>{factCard.fact}</Text>
-    </HeaderPanel>
-  );
+	return (
+		<AppContainer>
+			<HeaderPanel>
+				<HeaderText>{factCard.bird_name}</HeaderText>
+				<LargeImage source={getFactPhoto} />
+				<Text>{factCard.fact}</Text>
+			</HeaderPanel>
+			<MainContent></MainContent>
+			<Navbar />
+		</AppContainer>
+	);
 };
 
 export default FactCard;
