@@ -1,3 +1,4 @@
+
 package host.exp.exponent;
 
 import android.os.Build;
@@ -12,6 +13,8 @@ import expo.modules.ReactActivityDelegateWrapper;
 import android.os.Bundle;
 
 public class MainActivity extends ReactActivity {
+
+ 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     // Set the theme to AppTheme BEFORE onCreate to support 
@@ -55,8 +58,13 @@ public class MainActivity extends ReactActivity {
     // because it's doing more than {@link Activity#moveTaskToBack} in fact.
     super.invokeDefaultOnBackPressed();
   }
+<<<<<<< HEAD
+
+
+=======
   @Override
     protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(null);
   }
+>>>>>>> 3530b94e5ecb960ee6e6b5a47faa57f2bb66ff05
 }

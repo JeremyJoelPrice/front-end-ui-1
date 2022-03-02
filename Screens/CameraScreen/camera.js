@@ -4,7 +4,9 @@ import { Button, ImageBackground, Text, TouchableOpacity, View, StyleSheet, Imag
 import * as Sharing from 'expo-sharing'; 
 import * as ImagePicker from 'expo-image-picker';
 import * as Location from 'expo-location';
+import * as FileSystem from "expo-file-system";
 import { test } from "../../api";
+import {View} from '../../Components/Styled Components/index'
 
 const CameraFile = () => {
   const [hasCameraPermission, setHasCameraPermission] = useState(null)
@@ -14,7 +16,7 @@ const CameraFile = () => {
   const [type, setType] = useState(Camera.Constants.Type.back);
   const [lastPhotoURI, setLastPhotoURI] = useState(null);
   const cameraRef = useRef(null);
-  const [data, setData] = useState([])
+  
 
   useEffect(() => {
       (async () => {
@@ -51,12 +53,29 @@ const CameraFile = () => {
     setSelectedImage({ localUri: pickerResult.uri })
  }
 
- let shareImage =  () => {
-  test().then((res) => {
-    alert(res)
+ let shareImage = async () => {
+  if (Platform.OS === "web") {
+    alert(`Uh oh, sharing isn't available on your platform`);
+    return;
+  }
+
+  await Sharing.shareAsync(selectedImage.localUri);
+};
+
+const uploadImage = () => {
+    
+  FileSystem.uploadAsync('https://bird-brain-nc-project.herokuapp.com/photo', lastPhotoURI, {
+    headers: {
+      'content-type': 'multipart/form-data'
+    }, 
+    httpMethod: 'POST',
+    uploadType: FileSystem.FileSystemUploadType.MULTIPART
+  }).then((res) => {
+    console.warn(res)
+  }).catch((error) => {
+    console.log(error)
   })
- 
-}; 
+};
 
  if (selectedImage !== null) {
   return (
@@ -65,9 +84,13 @@ const CameraFile = () => {
       <Image
         source={{ uri: selectedImage.localUri }}
         style={styles.thumbnail}
-      />
+        />
               <TouchableOpacity onPress={shareImage} style={styles.deleteButton}>
-          <Text style={styles.buttonText}>Upload</Text>
+          <Text style={styles.buttonText}>Share</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => {
+            setSelectedImage(null);}} style={styles.deleteButton}>
+          <Text style={styles.buttonText}>Back</Text>
         </TouchableOpacity>
         
     </View>
@@ -81,7 +104,13 @@ if (lastPhotoURI !== null) {
         <TouchableOpacity
           style={styles.deleteButton}
           onPress={() => {setLastPhotoURI(null);}}>
-          <Text style={{ fontSize: 30, padding: 10, color: "white" }}>❌</Text>
+          <Text style={{ fontSize: 30, padding: 10, color: "white" }}>Retake</Text>
+        </TouchableOpacity>
+        
+        <TouchableOpacity
+          style={styles.deleteButton}
+          onPress={uploadImage}>
+          <Text style={{ fontSize: 30, padding: 10, color: "white" }}>Submit</Text>
         </TouchableOpacity>
       </ImageBackground>
     );

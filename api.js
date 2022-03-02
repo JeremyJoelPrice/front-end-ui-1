@@ -38,3 +38,9 @@ export const getFactCards = (userId) => {
 		.get(`/users/${userId}/fact_cards`)
 		.then(({ data }) => data.cards);
 };
+
+export const mainImage = (bird_name, image_num) => {
+	return axios.get(`photo/${bird_name}/${image_num}`).then((res) => {
+
+	})
+}
