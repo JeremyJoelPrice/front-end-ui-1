@@ -14,12 +14,15 @@ import { Navbar } from "./Components/Navbar/Navbar";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-	const [userId, setUserId] = useState(1);
+	const [currentUser, setCurrentUser] = useState({
+		username: "Nora Foreman",
+		userId: 1
+	});
 	const [factCards, setFactCards] = useState([]);
 
 	return (
 		<NavigationContainer>
-			<UserContext.Provider value={{ userId, setUserId }}>
+			<UserContext.Provider value={{ currentUser, setCurrentUser }}>
 				<FactCardsContext.Provider value={{ factCards, setFactCards }}>
 					<Stack.Navigator screenOptions={{ headerShown: false }}>
 						<Stack.Screen name="UserLogin" component={UserLogin} />

@@ -17,11 +17,11 @@ import { Navbar } from "../../Components/Navbar/Navbar";
 
 const Aviary = ({ navigation }) => {
 	const { factCards, setFactCards } = useContext(FactCardsContext);
-	const { userId } = useContext(UserContext);
+	const { currentUser } = useContext(UserContext);
 	const [birdCards, setBirdCards] = useState([]);
 
 	useEffect(() => {
-		getFactCards(userId).then((cards) => {
+		getFactCards(currentUser.userId).then((cards) => {
 			setFactCards(cards);
 			setBirdCards(extractBirdCards(cards));
 		});

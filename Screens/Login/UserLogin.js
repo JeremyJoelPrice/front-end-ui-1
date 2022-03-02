@@ -24,7 +24,7 @@ const UserLogin = ({ navigation }) => {
 	const [username, setUsername] = useState("");
 	const [loginIncorrect, setLoginIncorrect] = useState(false);
 	const [userNotFound, setUserNotFound] = useState(false);
-	const { userId, setUserId } = useContext(UserContext);
+	const { currentUser, setCurrentUser } = useContext(UserContext);
 
 	function submit() {
 		// check password field isn't empty, and email is valid
@@ -38,12 +38,11 @@ const UserLogin = ({ navigation }) => {
 				login(email, password)
 					.then(({ data }) => {
 						setUserNotFound(false);
-						setUserId(data.user_id);
+						setCurrentUser({ username, userId: data.user_id });
 						navigation.navigate("Aviary");
 					})
 					.catch((error) => {
 						// user doesn't exist, display message
-						console.log("Something wen twrong");
 						setUserNotFound(true);
 					});
 			} else {
