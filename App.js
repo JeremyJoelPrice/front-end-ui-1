@@ -17,23 +17,19 @@ export default function App() {
   const [userId, setUserId] = useState(1);
   const [factCards, setFactCards] = useState([]);
 
-  return (
-    <AppContainer>
-      <MainContent>
-        <NavigationContainer>
-          <UserContext.Provider value={{ userId, setUserId }}>
-            <FactCardsContext.Provider value={{ factCards, setFactCards }}>
-              <Stack.Navigator screenOptions={{ headerShown: false }}>
-                <Stack.Screen name="Aviary" component={Aviary} />
-                <Stack.Screen name="OneBird" component={OneBird} />
-                <Stack.Screen name="FactCard" component={FactCard} />
-                <Stack.Screen name="UserLogin" component={UserLogin} />
-              </Stack.Navigator>
-            </FactCardsContext.Provider>
-          </UserContext.Provider>
-        </NavigationContainer>
-      </MainContent>
-      <Navbar />
-    </AppContainer>
-  );
+
+	return (
+		<NavigationContainer>
+			<UserContext.Provider value={{ currentUser, setCurrentUser }}>
+				<FactCardsContext.Provider value={{ factCards, setFactCards }}>
+					<Stack.Navigator screenOptions={{ headerShown: false }}>
+						<Stack.Screen name="UserLogin" component={UserLogin} />
+						<Stack.Screen name="Aviary" component={Aviary} />
+						<Stack.Screen name="OneBird" component={OneBird} />
+						<Stack.Screen name="FactCard" component={FactCard} />
+					</Stack.Navigator>
+				</FactCardsContext.Provider>
+			</UserContext.Provider>
+		</NavigationContainer>
+	);
 }
