@@ -19,5 +19,7 @@ export const StyledBirdCard = styled(View)`
     padding: 5px;
     background-color: ${white}
 	box-shadow: 2px 2px 10px ${black};
+	border: 2px solid black;
     border-radius: 8%;
+	padding-top: 7px;
 `;

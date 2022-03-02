@@ -1,15 +1,22 @@
 import styled from "styled-components/native";
-import { View } from "..";
+import { Text, View } from "..";
+import { StyledBirdCard } from "../aviary/StyledBirdCard";
 
-const StyledFactCardThumbnail = styled(View)`
-  border: 2px solid black;
-  min-height: 150px;
-  width: 150px;
-  margin-bottom: 150px;
+const StyledFactCardThumbnail = styled(StyledBirdCard)`
+	min-height: 150px;
+	width: 120px;
+	margin-bottom: 50px;
+	border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 `;
 const StyledEmptyFactCardThumbnail = styled(StyledFactCardThumbnail)`
-  border: 2px solid black;
-  background-color: gray;
+	background-color: gray;
 `;
 
-export { StyledFactCardThumbnail, StyledEmptyFactCardThumbnail };
+const FactCardText = styled(Text)`
+	
+`;
+
+export { FactCardText, StyledFactCardThumbnail, StyledEmptyFactCardThumbnail };
