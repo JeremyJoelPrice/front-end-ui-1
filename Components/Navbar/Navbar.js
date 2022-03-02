@@ -8,9 +8,9 @@ import {
 	ThumbnailImage
 } from "../Styled Components";
 
-const Navbar = () => {
+const Navbar = ({ navigation }) => {
 	function onPress(destination) {
-		console.log(destination);
+		navigation.navigate(destination);
 	}
 
 	return (
@@ -20,8 +20,8 @@ const Navbar = () => {
 					<Text>Aviary</Text>
 				</StyledNavbarButton>
 				<CameraImage source={require("../../icons/camera.png")} />
-				<StyledNavbarButton>
-					<Text>Marketplace</Text>
+				<StyledNavbarButton onPress={() => onPress("UserLogin")}>
+					<Text>Sign Out</Text>
 				</StyledNavbarButton>
 			</FlexRow>
 		</StyledNavbar>

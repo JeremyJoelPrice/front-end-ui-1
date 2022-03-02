@@ -41,7 +41,7 @@ const Aviary = ({ navigation }) => {
 					})}
 				</StyledBirdCardList>
 			</MainContent>
-			<Navbar />
+			<Navbar navigation={navigation} />
 		</AppContainer>
 	);
 };

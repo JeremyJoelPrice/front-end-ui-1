@@ -26,7 +26,7 @@ const OneBird = ({ navigation, route }) => {
 				<FactCardThumbnail factCard={factCards[2]} navigation={navigation} />
 				<FactCardThumbnail factCard={factCards[3]} navigation={navigation} />
 			</MainContent>
-			<Navbar />
+			<Navbar navigation={navigation} />
 		</AppContainer>
 	);
 };
