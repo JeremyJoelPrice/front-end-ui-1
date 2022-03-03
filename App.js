@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import FactCard from "./Screens/FactCardScreen/FactCard";
@@ -9,6 +9,7 @@ import UserContext from "./UserContext";
 import FactCardsContext from "./FactCardsContext";
 import PhotoUpload from "./Screens/PhotoUploadScreen/PhotoUpload";
 import ResultsScreen from "./Screens/ResultsScreen/ResultsScreen";
+import { getFactCards } from "./api";
 
 const Stack = createNativeStackNavigator();
 
@@ -17,7 +18,11 @@ export default function App() {
 		username: "Nora Foreman",
 		userId: 1
 	});
-
+	useEffect(() => {
+		getFactCards(currentUser.userId).then((cards) => {
+			setFactCards(cards);
+		});
+	}, []);
 	const [factCards, setFactCards] = useState([]);
 
 	return (
