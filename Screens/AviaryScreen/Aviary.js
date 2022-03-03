@@ -30,7 +30,7 @@ const Aviary = ({ navigation }) => {
 	return (
 		<AppContainer>
 			<HeaderPanel>
-				<HeaderText>{currentUser.username}'s Aviary</HeaderText>
+				<HeaderText>Nora Foreman's Aviary</HeaderText>
 			</HeaderPanel>
 			<MainContent>
 				<StyledBirdCardList>

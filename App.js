@@ -30,10 +30,10 @@ export default function App() {
 			<UserContext.Provider value={{ currentUser, setCurrentUser }}>
 				<FactCardsContext.Provider value={{ factCards, setFactCards }}>
 					<Stack.Navigator screenOptions={{ headerShown: false }}>
+						<Stack.Screen name="UserLogin" component={UserLogin} />
 						<Stack.Screen name="ResultsScreen" component={ResultsScreen} />
 						<Stack.Screen name="Aviary" component={Aviary} />
 						<Stack.Screen name="PhotoUpload" component={PhotoUpload} />
-						<Stack.Screen name="UserLogin" component={UserLogin} />
 						<Stack.Screen name="OneBird" component={OneBird} />
 						<Stack.Screen name="FactCard" component={FactCard} />
 					</Stack.Navigator>
