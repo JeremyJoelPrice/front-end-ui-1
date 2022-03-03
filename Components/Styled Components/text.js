@@ -42,4 +42,25 @@ const TitleText = styled(Text)`
 	font-family: serif;
 `;
 
-export { HeaderText, RedText, SmallText, Text, TextInput, TitleText };
+const MysteryText = styled(TitleText)`
+	font-family: sans;
+	font-size: 15em;
+	color: white;
+	text-shadow: 0.5px 0.5px 2px ${black};
+	margin-top: 50px;
+`;
+
+const MysterySubtext = styled(MysteryText)`
+	font-size: 3em;
+	margin: 0;
+`;
+export {
+	HeaderText,
+	MysteryText,
+	MysterySubtext,
+	RedText,
+	SmallText,
+	Text,
+	TextInput,
+	TitleText
+};

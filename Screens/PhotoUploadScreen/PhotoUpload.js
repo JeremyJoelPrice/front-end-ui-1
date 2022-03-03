@@ -9,6 +9,7 @@ import {
 	HeaderText,
 	LargeImage,
 	MainContent,
+	Pressable,
 	Text,
 	ThumbnailImage,
 	UserPhoto,
@@ -20,6 +21,10 @@ const PhotoUpload = ({ navigation }) => {
 
 	function onPress() {
 		setLoading((loading) => !loading);
+	}
+
+	function navigateToResultsScreen() {
+		navigation.navigate("ResultsScreen");
 	}
 
 	return (
@@ -34,7 +39,9 @@ const PhotoUpload = ({ navigation }) => {
 						<Text>Fetching results...</Text>
 						<VerticalBuffer />
 						<FlexRow>
-							<ThumbnailImage source={require("../../loading-wheel.gif")} />
+							<Pressable onPress={navigateToResultsScreen}>
+								<ThumbnailImage source={require("../../loading-wheel.gif")} />
+							</Pressable>
 						</FlexRow>
 					</MainContent>
 				</>
