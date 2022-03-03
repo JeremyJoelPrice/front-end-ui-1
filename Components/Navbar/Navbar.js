@@ -5,7 +5,8 @@ import {
 	FlexRow,
 	StyledNavbarButton,
 	CameraImage,
-	ThumbnailImage
+	ThumbnailImage,
+	Pressable
 } from "../Styled Components";
 
 const Navbar = ({ navigation }) => {
@@ -19,7 +20,9 @@ const Navbar = ({ navigation }) => {
 				<StyledNavbarButton onPress={() => onPress("Aviary")}>
 					<Text>Aviary</Text>
 				</StyledNavbarButton>
-				<CameraImage source={require("../../icons/camera.png")} />
+				<Pressable onPress={() => onPress("PhotoUpload")}>
+					<CameraImage source={require("../../icons/camera.png")} />
+				</Pressable>
 				<StyledNavbarButton onPress={() => onPress("UserLogin")}>
 					<Text>Sign Out</Text>
 				</StyledNavbarButton>

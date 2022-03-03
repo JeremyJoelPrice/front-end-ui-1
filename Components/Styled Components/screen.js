@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { blue, greenWhite, View } from ".";
+import { black, blue, greenWhite, View } from ".";
 
 export const Screen = styled(View)``;
 
@@ -19,4 +19,5 @@ export const HeaderPanel = styled(View)`
 
 	padding: 8px;
 	margin-bottom: 20px;
+	border: 0.5px solid ${black};
 `;

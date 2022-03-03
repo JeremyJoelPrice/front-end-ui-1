@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 import { Text as rawText, TextInput as rawTextInput } from "react-native";
-import { black, greenWhite } from "./colours";
+import { black, blueOutline, greenOutline, greenWhite } from "./colours";
 
 const BlankText = styled(rawText)`
 	box-sizing: border-box;
@@ -12,8 +12,8 @@ const BlankText = styled(rawText)`
 `;
 
 const TextInput = styled(rawTextInput)`
-	borderBottomColor: ${black};
-	borderBottomWidth: 2pt;
+	borderbottomcolor: ${black};
+	borderbottomwidth: 2pt;
 	margin: 8px;
 	text-align: center;
 `;
@@ -33,7 +33,8 @@ const SmallText = styled(Text)`
 `;
 
 const HeaderText = styled(Text)`
-	font-size: 1.6em;
+	font-size: 1.8em;
+	text-shadow: 0.5px 0.5px 1px ${greenOutline};
 `;
 
 const TitleText = styled(Text)`

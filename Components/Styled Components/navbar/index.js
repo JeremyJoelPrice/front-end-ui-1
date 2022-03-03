@@ -1,7 +1,13 @@
 import styled from "styled-components/native";
 import { View } from "../";
 import { Pressable } from "../buttons";
-import { black, greenShadow, greenWhite } from "../colours";
+import {
+	black,
+	green,
+	greenOutline,
+	greenShadow,
+	greenWhite
+} from "../colours";
 import { ThumbnailImage } from "../images";
 
 const StyledNavbar = styled(View)`
@@ -22,7 +28,7 @@ const CameraImage = styled(ThumbnailImage)`
 	width: ${width}px;
 	height: ${height}px;
 
-	margin-top: 8px;
+	margin-top: 16px;
 	padding-bottom: 10px;
 `;
 
@@ -32,8 +38,8 @@ const StyledNavbarButton = styled(Pressable)`
 	align-self: flex-end;
 	border-radius: 20%;
 	background-color: ${greenShadow};
-	shadowColor: ${greenShadow};
-	shadowRadius: 4px;
+	box-shadow: 1pt 1pt 1pt ${greenShadow};
+	border: 1pt solid ${greenOutline};
 `;
 
 export { CameraImage, StyledNavbar, StyledNavbarButton };
